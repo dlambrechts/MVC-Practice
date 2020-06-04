@@ -1,0 +1,56 @@
+﻿html, body {
+    height: 100%;
+ 
+}
+section {
+    background-color: #fafafa;
+    overflow: auto;
+    float: right;
+    padding: 5px;
+    width: 79%;
+    min-height: 450px;
+}
+
+aside {
+    float: left;
+    width: 19%;
+    background-color: #fafafa;
+    padding-top: 10px;
+    margin-top:20px;
+}
+
+section {
+    background-color: #ccc;
+    margin-top:0px;
+}
+footer {
+    position: relative;
+    float: none;
+    clear: both;
+    background-color: #286af0;
+    height: 35px;
+    padding: 4px 4px 4px 4px;
+    text-align: center;
+    color:white;
+    text-decoration:underline;
+    
+}
+
+aside article a {
+    border: red 1px solid;
+    padding: 10px 80px 10px 10px;
+}
+
+
+header {
+
+    display: block;
+    background-color: #286af0;
+    padding: 0px 0px 5px;
+}
+
+
+#container {
+
+
+}
