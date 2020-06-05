@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Cosmo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Constelaciones</h2>
+<hr />
+<div>
+
+    <form>
+        <fieldset>
+            <legend>Ingreso de datos</legend>
+            <div >
+                <label>Siglo</label>
+                <div>
+                    <input type="text"  id="siglo" value="" >
+                </div>
+            </div>
+            <div>
+                <label>Nombre</label>
+                <div>
+                    <input type="text" id="nombre" value="" >
+                </div>
+            </div>
+            <button type="button" id="btnSave"  onclick="save();">Grabar</button>
+            <button type="button" id="btnList"  onclick="listConstellations();">Listar</button>
+        </fieldset>
+    </form>
+</div>
+<hr />
+<div id="ListaCons">
+
+</div>
+
+@section scripts{
+    <script>
+        var constelaciones = new Array();
+        function Constelacion() {
+            this.setSiglo = function (value) {
+                this._siglo = value;
+            }
+            this.getSiglo = function () {
+                return this._siglo;
+            }
+            this.setNombre = function (value) {
+                this._nombre = value;
+            }
+            this.getNombre = function () {
+                return this._nombre;
+            }
+        }
+        
+        function save() {
+            var c = new Constelacion();
+            var siglo = document.getElementById("siglo").value;
+            var nombre = document.getElementById("nombre").value;
+            if (siglo == "" || nombre == "") {
+                alert("Completar Campos");
+                return;
+            }
+            c.setSiglo(siglo);
+            c.setNombre(nombre);           
+            constelaciones.push(c);           
+            document.getElementById("siglo").value = "";
+            document.getElementById("nombre").value = "";
+        }
+        function listConstellations() {
+            var divRes = document.getElementById("ListaCons");
+            divRes.innerHTML = "";
+            if (constelaciones.length == 0) {
+                divRes.innerHTML = "No hay constelaciones para mostrar.";
+                return;
+            }
+            for (let i = 0; i < constelaciones.length; i++) {
+                let c = constelaciones[i];
+                divRes.innerHTML += "Siglo: " + c.getSiglo() + " - Nombre: " + c.getNombre() + "<br />";
+            }
+        }
+    </script>
+
+}

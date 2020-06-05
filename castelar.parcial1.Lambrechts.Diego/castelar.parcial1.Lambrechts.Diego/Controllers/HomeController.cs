@@ -13,5 +13,10 @@ namespace castelar.parcial1.Lambrechts.Diego.Controllers
         {
             return View();
         }
+
+        public ActionResult Cosmo()
+        {
+            return View();
+        }
     }
 }
